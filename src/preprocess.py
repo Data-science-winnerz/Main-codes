@@ -6,6 +6,7 @@ eroded image = no noise +thin font
 
 import cv2
 from matplotlib import pyplot as plt
+import numpy as np
 
 # Converting to inverted image
 def inverted(image):
@@ -17,7 +18,7 @@ def inverted(image):
 
 # Converting to gray scale
 def grayscale(image):
-        
+    
     #image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     #cv2.imshow(image)
     #cv2.imwrite('grayscale.png',inverted_image)
@@ -25,6 +26,7 @@ def grayscale(image):
 
 # Conveting to black and white
 def blackandwhite(image):
+    image = np.array(image)
     thresh, im_bw = cv2.threshold(grayscale(image), 200, 230, cv2.THRESH_BINARY)
     
     #cv2.imshow(im_bw)

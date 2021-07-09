@@ -11,12 +11,7 @@ def ocr(image):
     from PIL import ImageDraw,Image
     reader = easyocr.Reader(['en'],gpu = False)
 
-
-
-    im = Image.fromarray(image)
-    im
-
-    bounds = reader.readtext(im)
+    bounds = reader.readtext(image)
     bounds
 
     def draw_boxes(image, bounds, color = 'yellow',width = 2):
@@ -32,5 +27,4 @@ def ocr(image):
     for i in bounds:
         print(i[1])
 
-import cv2
-ocr(cv2.imread(r'E:\Projects\Image Detection\out_file.png'))
+

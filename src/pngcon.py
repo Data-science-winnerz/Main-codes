@@ -1,14 +1,9 @@
-from os import path
-from numpy.lib.type_check import imag
 from pdf2image import convert_from_path
-
-
-
-
 
 def convo(path):
     # Store Pdf with convert_from_path function
     images = convert_from_path(path,dpi= 200, poppler_path=r'C:\Program Files\poppler-21.03.0\Library\bin')
+    
     return images[0]
 
 
@@ -125,5 +120,3 @@ def rot2(image):
 
 
 
-import cv2
-rot2(cv2.imread("out.png"))
