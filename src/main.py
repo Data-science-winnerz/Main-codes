@@ -4,6 +4,22 @@ from preprocess import *
 from pngcon import convo
 import numpy as np
 import cv2
-img = convo(r'E:\Projects\Data winnerz ocr\Images\sample.pdf')
+
+
+img = convo("rotated.pdf")
 opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-ocr(blackandwhite(opencvImage))
+
+# Getting the ocr
+txt = ocr(noise_removal(opencvImage))
+
+# Saving the text
+with open(r'E:\Projects\Data winnerz ocr\outputs\output3_no_noise.txt','w') as file:
+    file.write(txt)
+
+
+# import pandas as pd
+# df = pd.read_csv('output_grayscale.txt',error_bad_lines=False)
+# print(df)
+# js = df.to_json('john.json',)
+
+# print(js)
