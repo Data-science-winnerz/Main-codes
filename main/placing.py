@@ -41,7 +41,9 @@ def rev_sentence(sentence):
 def arrange_dump(contents,heads):
     
     import json
+    import copy
     key_list = heads
+    headers = copy.deepcopy(heads)
 
     final = []
     
@@ -113,12 +115,3 @@ def arrange_dump(contents,heads):
     file.close()
 
 
-table = ['GARBAGE BAG LARGE 12 Nos 45.00 Nos 540.00',
- 'Life Boy Soap 10rs 12 Nos 8.47 Nos 101.64',
- 'S Hypo Chloried 28289019 2.000 KGS 30.00 KGS 60.00',
- 'Tide Powder1kg@28% 3402 4 Nos 83.05 Nos 332.20',
- 'WHEEL POWDER 1KG 2 Nos 42.37 Nos 84.74',
- 'Mop Refill 1 Nos 120.00 Nos 120.00',
- 'Brooms 6 Nos 75.00 Nos 450.00']
-headers = ['Description of Goods', 'HSN/SAC', 'Quantity', 'Rate', 'per', 'Amount']
-arrange_dump(table,headers)
