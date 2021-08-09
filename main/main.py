@@ -22,14 +22,10 @@ table = clean_extract(txt=txt)
 print("Table extracted")
 
 # For pdf 1
-# h = table.pop(0)
-# headers = head_extract(h)
-# print('headers modified')
-
-# For pdf 2
 h = table.pop(0)
-headers = head_extract2(h)
+headers = head_extract(h)
 print('headers modified')
 
-# arrange_dump(table,headers)
-# print('JSON created')
+
+arrange_dump(table,headers)
+print('JSON created')
