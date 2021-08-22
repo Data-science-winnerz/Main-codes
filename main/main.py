@@ -3,29 +3,29 @@ from preprocess import *
 from pngcon import convo
 from table_extract import clean_extract
 from spliting import head_extract
-from spliting_pdf2 import head_extract2
-from placing import arrange_dump
+from jain import arrange_dump
+from fairdealpharam import Fairdeal_Pharma
+from unitron2 import unitron
 import numpy as np
 import cv2
 
 
 
-img = convo(r"C:\Users\Vishal\Desktop\Main-codes\Images\s3.pdf")
+img = convo(r"C:\Users\Vishal\Desktop\Main-codes\Images\fairdeal.pdf")
 opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
 print("Image conversion successful")
 
 # Getting the ocr
-txt = ocr(noise_removal(opencvImage))
+txt = ocr(blackandwhite(opencvImage))
 print("ocrd successfully")
 
 table = clean_extract(txt=txt)
 print("Table extracted")
 
-# For pdf 1
-h = table.pop(0)
-headers = head_extract(h)
-print('headers modified')
+# # For pdf 1
+table.pop(0)
 
 
-arrange_dump(table,headers)
+Fairdeal_Pharma(table)
 print('JSON created')
+
