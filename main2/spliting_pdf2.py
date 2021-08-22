@@ -1,7 +1,7 @@
 
 def head_extract2(a):
     original_contents = ['MFR','QTY','FREE','DESCRIPTION','PKG','BATCH','EXP.',
-    'HSN','MRPs','RATE','DIS%','VALUE','GST%', 'GST AMT.']
+    "HSN Code’",'MRPs','RATE','DIS%','VALUE','GST%', 'GST AMT.']
 
 
     # a = 'MFR QTY  FREE DESCRIPTION  PKG BATCH EXP.  HSN MRPs RATE DIS % VALUE  GST%  GST AMT.'

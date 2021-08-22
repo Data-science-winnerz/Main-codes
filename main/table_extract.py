@@ -23,7 +23,7 @@ def clean_extract(txt):
 
 
     # Extracting the headings
-    to_find = 'Description Qty Rate Amount'
+    to_find = 'SI NO Description Particular HSN Rate Amount'
 
 
     # highest = process.extractOne(to_find,clean)
@@ -32,7 +32,7 @@ def clean_extract(txt):
 
     index  = 0
     for t in clean:
-        if (fuzz.token_set_ratio(to_find.lower(),t.lower())) > 80:
+        if (fuzz.token_set_ratio(to_find.lower(),t.lower())) > 70:
             index = clean.index(t)
 
     ending = int(input("Enter the number of rows in the table"))
