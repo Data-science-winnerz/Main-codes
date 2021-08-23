@@ -1,16 +1,13 @@
 
+'''
+This module is used to clean the text and extract the table
+'''
 
+# This method to clean the text
+def Clean_Text(txt):
 
-# ending = int(input())
-# with open(r'E:\Projects\Data winnerz ocr\outputs\output_bw.txt','r') as file:
-#     txt = file.readlines()
-
-
-def clean_extract(txt):
-
-    from fuzzywuzzy import fuzz
+  
     Txt = txt.split('\n')
-    # Cleaning the text
     bad_chars = ["'",'=','\n','|\n','|','~~','_ ï¿½\n','-','ï¿½','_ ï¿½','\x0c','�','?','#','$',';','~','!','\\','""','(',')']
 
     clean = []
@@ -19,33 +16,33 @@ def clean_extract(txt):
             t = t.replace(i,'')
         clean.append(t)
 
-    # #print(clean)
+    return clean
 
 
-    # Extracting the headings
+   
+# Method to extract the table
+
+def extract(txt):
+    
+    from fuzzywuzzy import fuzz
+    clean = Clean_Text(txt)
+    # Detecting the headings
     to_find = 'SI NO Description Particular HSN Rate Amount'
-
-
-    # highest = process.extractOne(to_find,clean)
-    # print(highest)
-
-
     index  = 0
     for t in clean:
         if (fuzz.token_set_ratio(to_find.lower(),t.lower())) > 70:
             index = clean.index(t)
 
+    # Extracting the rows of the table
     ending = int(input("Enter the number of rows in the table"))
     op = []
     print(index)
     for i in range(index,(index+ending+1)):
         op.append(clean[i])
 
-     
+
     return op
-    # with open('something.txt','w') as file:
-    #     for st in op:
-    #         file.writelines(st+'\n') 
-    # # header = op.pop(0)
+
+
 
 
