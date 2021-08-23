@@ -1,5 +1,4 @@
 
-Images/unitron2.pdf
-main/__pycache__/headers.cpython-38.pyc
-main/__pycache__/table_extract.cpython-38.pyc
+Images/
 *.pyc
+main/.vscode/
