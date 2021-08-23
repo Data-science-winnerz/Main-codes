@@ -3,7 +3,6 @@ Method to identify the company and call the needed module
 '''
 def identify_company(txt):
     from jain import arrange_dump
-
     from unitron2 import unitron
     from table_extract import clean_extract
 
@@ -15,6 +14,7 @@ def identify_company(txt):
             
                 print('Company name',list_of_companies[0])
                 table = clean_extract(txt=txt)
+                table.pop(0)
                 print("Table extracted")
                 unitron(table)
             
@@ -23,6 +23,6 @@ def identify_company(txt):
                 print('Company name',list_of_companies[1])
                 table = clean_extract(txt=txt)
                 print("Table extracted")
+                table.pop(0)
                 arrange_dump(table)
-        else: 
-            print('Company not found')
+        

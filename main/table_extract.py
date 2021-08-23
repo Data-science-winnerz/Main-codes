@@ -11,7 +11,7 @@ def clean_extract(txt):
     from fuzzywuzzy import fuzz
     Txt = txt.split('\n')
     # Cleaning the text
-    bad_chars = ['=','\n','|\n','|','~~','_ ï¿½\n','-','ï¿½','_ ï¿½','\x0c','�','?','#','$',';','~','!','\\','""','(',')']
+    bad_chars = ["'",'=','\n','|\n','|','~~','_ ï¿½\n','-','ï¿½','_ ï¿½','\x0c','�','?','#','$',';','~','!','\\','""','(',')']
 
     clean = []
     for t in Txt:
