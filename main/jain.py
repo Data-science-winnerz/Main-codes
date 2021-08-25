@@ -1,12 +1,8 @@
-"""
-To arrange the items as per the columns
-"""
 
+''''
+This module is to convert the rows of Jain Chemicals into a table and store the json file
+'''
 
-
-
-#num=['540.00', 'Nos', '45.00', '12Nos', 'LARGE', 'BAG', 'GARBAGE']
-#num=['101.64', 'Nos', '8.47' ,'12Nos' ,'10','Soap','Boy','Life']
 
 '''From Reverse:
 1 ---> n=len(headers) ---> 6
@@ -21,32 +17,17 @@ num[4] ---> Concatenate the left out list elements and rev them ---> n-5 --->hea
 '''
 
 
-
-def listToString(s): 
-    str1 = " " 
-    return (str1.join(s))
-
-def rev_sentence(sentence): 
-  
-    words = sentence.split(' ') 
-    reverse_sentence = ' '.join(reversed(words)) 
-    return reverse_sentence 
-
-
-
-
-   
-        
-
 def arrange_dump(contents):
-    heads = ['Description of Goods', 'HSN/SAC', 'Quantity', 'Rate', 'per', 'Amount']
     
     import json
     import copy
+    from utilites import rev_sentence,listToString    
+   # Intializing the needed elements
+    heads = ['Description of Goods', 'HSN/SAC', 'Quantity', 'Rate', 'per', 'Amount']
     key_list = heads
     headers = copy.deepcopy(heads)
-
     final = []
+    file = open('Jain Chemicals.json','a')
     
     # Reverse sorting the list
     for i in contents:
@@ -74,13 +55,8 @@ def arrange_dump(contents):
         #Storing the reversed list
         final.append(temp)
 
-
-
-    
-    file = open('bill.json','a')
-
-    
-      # file_out = open('bill.json','a')
+  
+    # Arrainging in cloumns and storing to file
     for st in final:
     
         n=len(headers)
@@ -107,10 +83,9 @@ def arrange_dump(contents):
             else:
                 headers[n-i-1] = st[i]
 
-        #print(headers)
 
         
-        dict_from_list = dict(zip(key_list, headers))   # json_object = json.dump(dict_from_list,file,indent = 4)  
+        dict_from_list = dict(zip(key_list, headers))   
         print(dict_from_list)
         json.dump(dict_from_list,file,indent=4)
     file.close()

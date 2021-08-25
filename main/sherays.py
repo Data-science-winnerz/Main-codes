@@ -1,27 +1,29 @@
 
+''''
+This module is to convert the rows of Shreyas Surgicals into a table and store the json file
+'''
 
 def Sheryas(Shreya):
     
     import json
+    from utilites import listToString,rev_sentence
+    
+    # Intializing the necessary elements
+    file = open('Sherya Surgical.json','a')
     a = ['MFD','ITEM DESCRIPTION','PKG','QTY','HSN','BATCH','EXP','MRP','SALE RATE','VALUE','DISC','TAX','NET AMOUNT']
     o = ['a','b','c','d','e','f','g','h','i','j','k','l','m']
     
 
-    def listToString(s): 
-        str1 = " " 
-        return (str1.join(s))
+   
 
-    def rev_sentence(sentence): 
-
-        words = sentence.split(' ') 
-        reverse_sentence = ' '.join(reversed(words)) 
-        return reverse_sentence
-
+# Iterating through each row and fitiing it into respective columns
     for g in range(len(Shreya)):
         shreya = Shreya[g]
         shreya = shreya.replace("  "," ")
         shreya = shreya.split(" ")
-
+        
+        if shreya[-1]==".":
+            del shreya[-1]
         shreya.reverse()
         n=len(o)
         c=[]
@@ -41,7 +43,7 @@ def Sheryas(Shreya):
 
         dict_from_list = dict(zip(a,o))
         #print(dict_from_list)
-        json_object = json.dumps(dict_from_list, indent = 4)  
-        print(json_object)
-
+        json_object = json.dump(dict_from_list, file,indent = 4)  
+    
+    file.close()
 

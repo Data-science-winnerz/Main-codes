@@ -1,20 +1,23 @@
 
+
+''''
+This module is to convert the rows of fair deal pharma into a table and store the json file
+'''
+
+
+
 def Fairdeal_Pharma(op):
+    
     import json
+    from utilites import rev_sentence,listToString
+
+
+    # Intializing
+    file = open('fair deal pharma.json','a')
     d = ['MFR', 'QTY', 'FREE', 'DESCRIPTION', 'PKG', 'BATCH', 'EXP.', 'HSN', 'MRPs', 'RATE', 
     'DIS%', 'VALUE', 'GST%', 'GST AMT.']
     org = ['MFR', 'QTY', 'FREE', 'DESCRIPTION', 'PKG', 'BATCH', 'EXP.', 'HSN', 'MRPs', 'RATE', 
     'DIS%', 'VALUE', 'GST%', 'GST AMT.']
-
-    def listToString(s): 
-        str1 = " " 
-        return (str1.join(s))
-
-    def rev_sentence(sentence): 
-
-        words = sentence.split(' ') 
-        reverse_sentence = ' '.join(reversed(words)) 
-        return reverse_sentence 
 
     for i in range(len(op)):
         h=op[i]
@@ -63,6 +66,7 @@ def Fairdeal_Pharma(op):
 
         dict_from_list = dict(zip(d, org))
         #print(dict_from_list)
-        json_object = json.dumps(dict_from_list, indent = 4)  
-        print(json_object)
+        json_object = json.dumps(dict_from_list,file, indent = 4)  
+    
+    file.close()       
 
