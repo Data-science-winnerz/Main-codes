@@ -10,7 +10,7 @@ def identify_company(txt):
     from sherays import Sheryas
     
     
-    list_of_companies = ['Unitron','JAINCHEMICALS','REYAS SURGICALS']
+    list_of_companies = ['SINo —_—~Particular ____Batch Expiry Date HSN/SAC Actual Qty Billed Qty Rate Discount. Amount','Description of Goods HSN/SAC Quantity Rate per Amount','MKTD NO. RATE % % |AMOUNT']
 
     for i,name in enumerate(list_of_companies):
     
