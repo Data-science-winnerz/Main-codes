@@ -37,7 +37,7 @@ def extract(txt):
     # Extracting the rows of the table
     ending = int(input("Enter the number of rows in the table"))
     op = []
-    print(index)
+  
     for i in range(index,(index+ending+1)):
         op.append(clean[i])
 

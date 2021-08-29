@@ -1,0 +1,34 @@
+{
+    "SINo": "1",
+    "Particular": "\u2018Abx Control Normal MX415N",
+    "Batch": "",
+    "Expiry Date": "5Apr2019:",
+    "HSN/SAC": "38220019",
+    "Actual Qty": "1.00",
+    "Billed Qty": "1.00",
+    "Rate": "2,400.00:",
+    "Discount": " ",
+    "Amount": "2,400"
+}{
+    "SINo": "41",
+    "Particular": "\u2018Lyse 400ml, AbxMicro60 ",
+    "Batch": "171019Y2.",
+    "Expiry Date": "19Oct2018",
+    "HSN/SAC": "38220019",
+    "Actual Qty": "1.00",
+    "Billed Qty": "1.00",
+    "Rate": "4,257.00:",
+    "Discount": " ",
+    "Amount": "4,257"
+}{
+    "SINo": "2",
+    "Particular": "Cleaner 1It Abx Micro60 :",
+    "Batch": "17091271",
+    "Expiry Date": "25Sep2018",
+    "HSN/SAC": "38220019",
+    "Actual Qty": "1.00",
+    "Billed Qty": "1.00",
+    "Rate": "1,925.00",
+    "Discount": " ",
+    "Amount": "1,925"
+}

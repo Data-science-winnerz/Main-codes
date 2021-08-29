@@ -86,7 +86,6 @@ def arrange_dump(contents):
 
         
         dict_from_list = dict(zip(key_list, headers))   
-        print(dict_from_list)
         json.dump(dict_from_list,file,indent=4)
     file.close()
 

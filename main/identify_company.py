@@ -2,46 +2,51 @@
 Method to identify the company and call the needed module
 '''
 
+
+
 def identify_company(txt):
     
+    from fuzzywuzzy import fuzz
     from jain import arrange_dump
-    from unitron2 import unitron
+    from unitron import unitron
     from table_extract import extract
     from sherays import Sheryas
     
     
-    list_of_companies = ['SINo —_—~Particular ____Batch Expiry Date HSN/SAC Actual Qty Billed Qty Rate Discount. Amount','Description of Goods HSN/SAC Quantity Rate per Amount','MKTD NO. RATE % % |AMOUNT']
+    list_of_companies = ['SINo Particular Batch Expiry Date HSN/SAC Actual Qty Billed Qty Rate Discount Amount','Description of Goods HSN/SAC Quantity Rate per Amount',
+    'MKTD NO. RATE AMOUNT']
 
-    for i,name in enumerate(list_of_companies):
-    
-        if txt.rfind(name)>-1:
+    lst = []
+    for i in list_of_companies:
+        lst.append(fuzz.token_set_ratio(i.lower(),txt.lower()))
             
-            if i == 0:
-            
-                print('Company name',list_of_companies[0])
-                table = extract(txt)
-                print("Table extracted")
-    
-                table.pop(0)
-                unitron(table)
-            
-            elif i == 1:
+    i  = lst.index(max(lst))
+   
+    if i == 0:
 
-                print('Company name',list_of_companies[1])
-                table = extract(txt)
-                print("Table extracted")
-    
-                table.pop(0)
-                arrange_dump(table)
-    
-            elif i == 2:
-    
-                print('Company name',list_of_companies[2])
-                table = extract(txt) 
-                print("Table extracted")
-    
-                table.pop(0)
-                Sheryas(table)
+       
+        table = extract(txt)
+        print("Table extracted")
+
+        table.pop(0)
+        unitron(table)
+
+    elif i == 1:
+
+        table = extract(txt)
+        print("Table extracted")
+
+        table.pop(0)
+        arrange_dump(table)
+
+    elif i == 2:
+
+        table = extract(txt) 
+        print("Table extracted")
+
+        table.pop(0)
+        table.pop(1)
+        Sheryas(table)
 
 
     return
