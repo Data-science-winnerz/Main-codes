@@ -3,7 +3,7 @@
 This module is used to clean the text and extract the table
 '''
 
-# This method to clean the text
+
 def Clean_Text(txt):
 
   
@@ -20,26 +20,50 @@ def Clean_Text(txt):
     return clean
 
 
-   
-# Method to extract the table
+def find_heading(clean):
+    from fuzzywuzzy import fuzz
+    to_find = 'SI NO Description Particular HSN Rate Amount'
+    starting  = 0
+    for t in clean:
+        if (fuzz.token_set_ratio(to_find.lower(),t.lower())) > 70:
+            starting = clean.index(t)
+    
+    
+    return starting
+
+
+def find_ending(txt):
+    from fuzzywuzzy import fuzz
+    
+    to_find = ['Recieved','output','FLASH']
+    lst = []
+    lst.append(0)
+    for i in to_find:
+        for t in txt:
+            lst.append(fuzz.token_set_ratio(i.lower(),t.lower()))
+    
+        if max(lst) < 90:
+            lst = []
+        else:
+            break
+    
+    i  = lst.index(max(lst))   
+
+    return i
+
+
 
 def extract(txt):
     
-    from fuzzywuzzy import fuzz
-    clean = Clean_Text(txt)
-    # Detecting the headings
-    to_find = 'SI NO Description Particular HSN Rate Amount'
-    index  = 0
-    for t in clean:
-        if (fuzz.token_set_ratio(to_find.lower(),t.lower())) > 70:
-            index = clean.index(t)
-
-    # Extracting the rows of the table
-    ending = int(input("Enter the number of rows in the table"))
+    
+    clean = Clean_Text(txt)  
+    starting = find_heading(clean)
+    ending = find_ending(clean)
+    print(clean[ending])
+   # Extracting the rows of the table
     op = []
   
-    for i in range(index,(index+ending+1)):
+    for i in range(starting,ending-1):
         op.append(clean[i])
-
-
     return op
+
