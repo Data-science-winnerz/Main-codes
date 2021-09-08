@@ -14,7 +14,7 @@ import time
 
 start_time = time.time()
 
-img = convo(r"C:\Users\Vishal\Desktop\Main-codes\Images\unitron2.pdf")
+img = convo(r"C:\Users\Vishal\Desktop\Main-codes\Images\jainchem.pdf")
 opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
 print("Image conversion successful")
 

@@ -29,13 +29,14 @@ def identify_company(txt):
         print("Table extracted")
 
         table.pop(0)
+        print(table)
         unitron(table)
 
     elif i == 1:
 
         table = extract(txt)
         print("Table extracted")
-
+        print(table)
         table.pop(0)
         arrange_dump(table)
 
