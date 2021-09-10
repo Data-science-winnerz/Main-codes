@@ -6,18 +6,10 @@ This module is used to clean the text and extract the table
 
 def Clean_Text(txt):
 
-  
-    Txt = txt.split('\n')
-    bad_chars = ["'",'=','\n','|\n','|','~~','_ ï¿½\n','-','ï¿½','_ ï¿½','\x0c','�','?','#','$',';','~',
-    '!','\\','""','(',')','“',']','}']
+    import re  
+    output = re.sub(r'[^ \nA-Za-z0-9/]+', '', txt)
+    return output.split('\n')
 
-    clean = []
-    for t in Txt:
-        for i in bad_chars :
-            t = t.replace(i,'')
-        clean.append(t)
-
-    return clean
 
 
 def find_heading(clean):

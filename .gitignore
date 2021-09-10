@@ -5,3 +5,4 @@ Images/*
 Old copy/*
 main/.vscode/*
 *.json
+*.pyc
