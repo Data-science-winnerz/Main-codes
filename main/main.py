@@ -10,12 +10,18 @@ from identify_company import identify_company
 import numpy as np
 import cv2
 import time
+from pathlib import Path
 
 
 start_time = time.time()
+folder = r"C:\Users\Vishal\Desktop\Main-codes\Images\jainchem_page.png"
 
-img = convo(r"C:\Users\Vishal\Desktop\Main-codes\Images\jainchem.pdf")
-opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+if (Path(folder).suffix == '.pdf'):
+    img = convo(folder)
+    opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+
+else:
+    opencvImage = cv2.imread(folder)
 print("Image conversion successful")
 
 # Getting the ocr
