@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 start_time = time.time()
-folder = r"C:\Users\Vishal\Desktop\Main-codes\Images\jainchem_page.png"
+folder = r"C:\Users\Vishal\Desktop\Main-codes\Images\unitron.png"
 
 if (Path(folder).suffix == '.pdf'):
     img = convo(folder)

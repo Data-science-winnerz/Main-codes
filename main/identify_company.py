@@ -22,29 +22,19 @@ def identify_company(txt):
             
     i  = lst.index(max(lst))
    
+    table = extract(txt)
+    print("Table extracted")
+    
     if i == 0:
-
-       
-        table = extract(txt)
-        print("Table extracted")
-
         table.pop(0)
         print(table)
         unitron(table)
 
     elif i == 1:
-
-        table = extract(txt)
-        print("Table extracted")
-        print(table)
         table.pop(0)
         arrange_dump(table)
 
     elif i == 2:
-
-        table = extract(txt) 
-        print("Table extracted")
-
         table.pop(0)
         table.pop(1)
         Sheryas(table)

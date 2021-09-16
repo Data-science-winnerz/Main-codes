@@ -14,7 +14,7 @@ def Clean_Text(txt):
 
 def find_heading(clean):
     from fuzzywuzzy import fuzz
-    to_find = 'SI NO Description Particular HSN Rate Amount'
+    to_find = 'SI NO SIND Description Particular HSN Rate Amount'
     starting  = 0
     for t in clean:
         if (fuzz.token_set_ratio(to_find.lower(),t.lower())) > 70:
@@ -74,7 +74,7 @@ def extract(txt):
 
     starting = find_heading(clean)
     ending = -1
-    if 'SINo' in clean[starting]:
+    if 'SINo' in clean[starting] or 'SIND' in clean[starting] :
         print('SERIAL EXECUTED')
         ending = find_ending_serial(clean,starting) +2
  
