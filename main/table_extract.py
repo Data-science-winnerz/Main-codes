@@ -14,7 +14,7 @@ def Clean_Text(txt):
 
 def find_heading(clean):
     from fuzzywuzzy import fuzz
-    to_find = 'SI NO SIND Description Particular HSN Rate Amount'
+    to_find = 'SINO SIND Description Particular HSN Rate Amount'
     starting  = 0
     for t in clean:
         if (fuzz.token_set_ratio(to_find.lower(),t.lower())) > 70:
