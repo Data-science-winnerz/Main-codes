@@ -3,9 +3,8 @@ This is the main module
 '''
 
 
-from tesseract_ocr import ocr
+from utilites import ocr,convo
 from preprocess import *
-from pngcon import convo
 from identify_company import identify_company
 import numpy as np
 import cv2
