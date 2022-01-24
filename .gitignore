@@ -3,6 +3,7 @@ Images/*
 *.pyc
 *.pdf
 Old copy/*
-main/.vscode/*
 *.json
 *.pyc
+.vscode/*
+__pycache__/*
